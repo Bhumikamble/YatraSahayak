@@ -4,9 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon Backend/src/index.js",
+     "dev": "concurrently \"npm run dev --prefix Backend\" \"npm run dev --prefix Frontend\"",
     "start": "node Backend/src/index.js",
-    "build": "npm install && npm install --prefix Frontend && npm run build --prefix Frontend"
+    "build": "cd Frontend && npm install && npm run build"
   },
   "keywords": [
     "javascript",
@@ -16,9 +16,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "concurrently": "^9.2.0",
     "nodemon": "^3.1.4",
     "prettier": "^3.3.3"
-   
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
