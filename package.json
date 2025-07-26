@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix Backend\" \"npm run dev --prefix Frontend\"",
-    "start": "node Backend/src/index.js",
+    "start": "npm run build && node Backend/src/index.js",
     "build": "cd Frontend && npm install && npm run build"
   },
   "keywords": [
