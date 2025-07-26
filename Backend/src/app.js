@@ -7,7 +7,11 @@ import postRoutes from './routes/post.route.js';
 import path from "path";
 import { fileURLToPath } from "url";
 
+
+
 const app = express();
+
+const __dirname = path.resolve();
 
 // Middleware
 app.use(cors());
@@ -23,18 +27,23 @@ app.use(function (req, res, next) {
 app.use("/posts", postRoutes);
 app.use("/api/v1/users", userRouter);
 
-// Path config for frontend
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const frontendPath = path.join(__dirname, "../Frontend/dist");
+// // Path config for frontend
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+// const frontendPath = path.join(__dirname, "../Frontend/dist");
 
-// Serve React frontend static files
-app.use(express.static(frontendPath));
+// // Serve React frontend static files
+// app.use(express.static(frontendPath));
 
-// Catch-all: React routes handled by frontend
+// // Catch-all: React routes handled by frontend
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(frontendPath, "index.html"));
+// });
+app.use(express.static(path.join(__dirname, "/Frontend/dist")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
+  res.sendFile(path.resolve("__dirname","Frontend", "index.html"));
 });
+ 
 
 // Error handler
 app.use(errorHandler);

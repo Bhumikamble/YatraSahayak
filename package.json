@@ -4,9 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
-    "start": "node -r dotenv/config --experimental-json-modules src/index.js",
-    "build": "echo 'No build step needed'"
+    "dev": "nodemon Backend/src/index.js",
+    "start": "node Backend/src/index.js",
+    "build": "npm install && npm install --prefix Frontend && npm run build --prefix Frontend"
   },
   "keywords": [
     "javascript",

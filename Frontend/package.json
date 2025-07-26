@@ -26,6 +26,7 @@
     "react-to-print": "^3.0.2",
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
+    "youtube": "file:..",
     "zustand": "^5.0.0"
   },
   "devDependencies": {
